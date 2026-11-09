@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this code or its outputs, please cite it as below."
+title: "Ethical justification and value tensions in AI preference data: analysis code for the Anthropic HH-RLHF dataset"
+type: software
+version: "2.0"
+date-released: "2026-11-09"
+license: MIT
+authors:
+  - family-names: Akilan
+    given-names: Agathiyan
+  - family-names: Sherawat
+    given-names: Ashwani
+keywords:
+  - RLHF
+  - human preference data
+  - AI ethics
+  - alignment
+  - HH-RLHF
+repository-code: "https://github.com/<ORG-OR-USER>/ethical-architects-hh-rlhf"
