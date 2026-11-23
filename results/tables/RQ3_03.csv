@@ -1,0 +1,13 @@
+subset,family,n_pairs,both,chosen_only,rejected_only,neither,chosen_pct,rejected_pct,difference_pp,ci_low_pp,ci_high_pp,estimate_status,context_flag,label
+helpful,user,31,8,12,6,5,64.51612903225806,45.16129032258064,19.35483870967742,-6.451612903225806,45.16129032258064,estimated,other_people,other_people context / user
+helpful,other_people,31,2,4,1,24,19.35483870967742,9.67741935483871,9.67741935483871,-3.225806451612903,25.806451612903224,estimated,other_people,other_people context / other_people
+helpful,collective,31,0,0,1,30,0.0,3.225806451612903,-3.225806451612903,-9.67741935483871,0.0,estimated,other_people,other_people context / collective
+harmless,user,70,36,11,11,12,67.14285714285714,67.14285714285714,0.0,-12.857142857142856,12.857142857142856,estimated,other_people,other_people context / user
+harmless,other_people,70,1,7,3,59,11.428571428571429,5.714285714285714,5.714285714285714,-2.857142857142857,14.285714285714285,estimated,other_people,other_people context / other_people
+harmless,collective,70,0,1,0,69,1.4285714285714286,0.0,1.4285714285714286,0.0,4.285714285714286,estimated,other_people,other_people context / collective
+helpful,user,44,10,9,8,17,43.18181818181818,40.909090909090914,2.272727272727273,-15.909090909090908,20.454545454545457,estimated,collective,collective context / user
+helpful,other_people,44,0,0,0,44,0.0,0.0,0.0,0.0,0.0,estimated,collective,collective context / other_people
+helpful,collective,44,1,4,2,37,11.363636363636363,6.8181818181818175,4.545454545454546,-4.545454545454546,15.909090909090908,estimated,collective,collective context / collective
+harmless,user,70,27,8,16,19,50.0,61.42857142857143,-11.428571428571429,-24.32142857142857,2.857142857142857,estimated,collective,collective context / user
+harmless,other_people,70,1,1,4,64,2.857142857142857,7.142857142857142,-4.285714285714286,-10.0,1.4285714285714286,estimated,collective,collective context / other_people
+harmless,collective,70,3,7,5,55,14.285714285714285,11.428571428571429,2.857142857142857,-5.714285714285714,12.857142857142856,estimated,collective,collective context / collective

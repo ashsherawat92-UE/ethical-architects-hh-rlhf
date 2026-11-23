@@ -1,0 +1,3 @@
+subset,strict_pairs,density_pairs,zero_token_pair_exclusions,mean_length_at_most_25,mean_length_above_25_through_75,mean_length_above_75
+helpful,2333,2333,0,887,1201,245
+harmless,2297,2292,5,1060,1040,192

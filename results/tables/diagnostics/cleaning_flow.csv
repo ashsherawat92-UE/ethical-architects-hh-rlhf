@@ -1,0 +1,17 @@
+source,step,excluded,retained
+harmless_test,raw_lines,0,2312
+harmless_test,schema,0,2312
+harmless_test,unparseable_or_no_final_assistant,0,2312
+harmless_test,context_mismatch,5,2307
+harmless_test,empty_final_reply,4,2303
+harmless_test,identical_final_replies,0,2303
+harmless_test,nonalternating_or_empty_context_turn,4,2299
+harmless_test,repeated_context,2,2297
+helpful_test,raw_lines,0,2354
+helpful_test,schema,0,2354
+helpful_test,unparseable_or_no_final_assistant,0,2354
+helpful_test,context_mismatch,9,2345
+helpful_test,empty_final_reply,4,2341
+helpful_test,identical_final_replies,2,2339
+helpful_test,nonalternating_or_empty_context_turn,6,2333
+helpful_test,repeated_context,0,2333

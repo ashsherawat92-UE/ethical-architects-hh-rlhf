@@ -1,0 +1,24 @@
+[
+  {
+    "identity": "helpful_test",
+    "lines": 2354,
+    "schema_valid": 2354,
+    "schema_invalid": 0,
+    "sha256_content": "41c3a32fe45a7075f7e32b11bd29383f9fe650287354a95568f61295a8e694da",
+    "sha256_stored_bytes": "8be3fc1a13b27901631696f2be6f184c799f1baeaf145f53ac5db24960adc37b",
+    "storage_format": "gzip",
+    "source_url": "https://huggingface.co/datasets/Anthropic/hh-rlhf/resolve/d8d97fe9e96fcd19cc8fc31bd04ee393422abfbb/helpful-base/test.jsonl.gz",
+    "source_revision": "d8d97fe9e96fcd19cc8fc31bd04ee393422abfbb"
+  },
+  {
+    "identity": "harmless_test",
+    "lines": 2312,
+    "schema_valid": 2312,
+    "schema_invalid": 0,
+    "sha256_content": "14d765196c9f18d84f9bb3a78bac608c8f2915110ebcbd74ec95db7b7198b008",
+    "sha256_stored_bytes": "ebfaaed21162a4de120ae85366075b34425e2a6303fac59b99555002f7016f03",
+    "storage_format": "gzip",
+    "source_url": "https://huggingface.co/datasets/Anthropic/hh-rlhf/resolve/d8d97fe9e96fcd19cc8fc31bd04ee393422abfbb/harmless-base/test.jsonl.gz",
+    "source_revision": "d8d97fe9e96fcd19cc8fc31bd04ee393422abfbb"
+  }
+]

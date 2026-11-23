@@ -1,74 +1,110 @@
-# Ethical justification and value tensions in AI preference data
+# Lexical patterns and measurement sensitivity in AI preference data
 
 Analysis code and results for **Project 14** of the PW26 elective *AI, Power & Responsibility: Governing Intelligence* — Team Ethical Architects (Agathiyan Akilan, Ashwani Sherawat).
 
 **Target journal:** Ethics and Information Technology (Springer Nature)
-**Anchor paper:** Dahlgren Lindström et al. (2025), *Helpful, harmless, honest? Sociotechnical limits of AI alignment and safety through RLHF*, [10.1007/s10676-025-09837-2](https://doi.org/10.1007/s10676-025-09837-2)
-**Dataset:** [Anthropic/hh-rlhf](https://huggingface.co/datasets/Anthropic/hh-rlhf) (MIT), `helpful-base` and `harmless-base`, pinned revision `d8d97fe9e96fcd19cc8fc31bd04ee393422abfbb`
+**Anchor paper:** Dahlgren Lindström et al. (2025), *Helpful, harmless, honest? Sociotechnical limits of AI alignment and safety through RLHF*, [10.1007/s10676-025-09837-2](https://doi.org/10.1007/s10676-025-09837-2). Closest dataset audit: Chehbouni et al. (2025), *Beyond the Safety Bundle*.
+**Dataset:** [Anthropic/hh-rlhf](https://huggingface.co/datasets/Anthropic/hh-rlhf) (MIT), `helpful-base` and `harmless-base` test splits, pinned revision `d8d97fe9e96fcd19cc8fc31bd04ee393422abfbb`
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX) ← replace after the first Zenodo release
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24090950.svg)](https://doi.org/10.5281/zenodo.24090950)
 
-## Research questions
+## What the study measures
 
-| RQ | Question | Notebook step | Outputs |
-|---|---|---|---|
-| RQ1a | How do chosen and rejected replies differ in refusal, partial assistance, redirection and safety information in helpfulness–harmlessness conflict pairs? | 6 | `fig1a_rq1a_strategies.*`, `rq1a_strategies.csv` |
-| RQ1b | How adequately are refusals justified — none, generic, or a specific risk named? | 6 | `fig1b_rq1b_justification.*`, `rq1b_justification.csv`, `rq1b_stats.json` |
-| RQ2 | In the helpful subset, are hedged replies rejected in favour of confident ones? (Factual support comes from the human fact-check.) | 7 | `fig2_rq2_language.*`, `rq2_language.csv` |
-| RQ3 | Who bears the harm (requester / third party / society), and are third parties' interests acknowledged? | 8 | `fig3_rq3_harm_bearer.*`, `rq3_harm_bearer.csv`, `rq3_stakeholders.csv`, `rq3_stats.json` |
-| RQ4 | Does the dataset's ranking stay stable, reverse or become unresolved under frozen ethical criteria? | 9 | `fig4_rq4_reranking.*`, `rq4_reranking.csv`, `rq4_sensitivity.csv` |
+Every pair in HH-RLHF holds two AI-generated replies to the same conversation and a human annotator's record of which one was preferred. We measure literal expression patterns in the chosen and rejected replies and test how sensitive those measurements are to analytic choices. A dictionary hit cannot establish factual accuracy, ethical adequacy, stakeholder protection, or why an annotator preferred a reply; the preference label is the object of study, not a standard.
+
+## Research questions and outputs
+
+Sixteen registered outputs, four per research question. Every output has a CSV table in `results/tables/`; nine also have a figure in `results/figures/` (PDF + PNG). `results/RESULTS_README.txt` and `results/run_manifest.json` describe each one.
+
+| RQ | Question | Outputs |
+|---|---|---|
+| **RQ1** Response expressions | How do chosen and rejected replies differ in the occurrence of four literal response-expression families (refusal, assistance, redirection, safety), in their within-reply co-occurrence, and in the number of families present? | `RQ1_01` occurrence (fig) · `RQ1_02` co-occurrence (fig) · `RQ1_03` expression contributions · `RQ1_04` breadth transitions (fig) |
+| **RQ2** Uncertainty and assertion wording | Do chosen and rejected replies differ in the density of uncertainty and assertion expressions per 100 tokens, overall, by pair length, and as presence/absence? | `RQ2_01` paired densities · `RQ2_02` density by length group (fig) · `RQ2_03` presence patterns · `RQ2_04` rate distributions (fig) |
+| **RQ3** Explicit references to others | How often do replies explicitly refer to the requester, other persons, or collectives, how do these references combine, and how do they differ when the shared context already mentions others? | `RQ3_01` reference occurrence (fig) · `RQ3_02` reference combinations · `RQ3_03` differences within lexical contexts (fig) · `RQ3_04` individual expressions |
+| **RQ4** Measurement sensitivity | How stable are the RQ1–RQ3 estimates under an expanded dictionary, relaxed prior-turn eligibility, alternative context representatives, and response-length restrictions? | `RQ4_01` dictionary sensitivity (fig) · `RQ4_02` structural eligibility · `RQ4_03` length restrictions (fig) · `RQ4_04` complete stability summary |
+
+Statistics: paired differences in percentage points or matches per 100 tokens, pointwise 95% pair-bootstrap intervals (2,000 replicates, seed 20261026), exact McNemar tests with Holm correction within `RQ1_01`, `RQ1_02`, `RQ2_03` and `RQ3_01`. Hypothesis tests are exploratory. Undefined groups are reported as unestimable rather than imputed.
 
 ## Repository layout
 
 ```
-Ethical_Architects_Final_Implementation.ipynb   single notebook: load → verify → clean → sample → RQ1–RQ4 → validation hook → zip
+notebooks/
+  Ethical_Architects_notebook.ipynb        executed notebook: M1 configure → M2 verify → M3 clean → M4 dictionaries
+                                           → M5 cohorts → M6 statistics → RQ1–RQ4 (16 outputs) → M7 package
+  archive/                                 earlier versions (v2.0 of 9 Nov 2026)
 results/
-  final_results_<split>_<date>.zip               full run output (research_outputs/, diagnostics/, annotation_templates/)
-  preview/*.png                                  the five figures from the latest run
+  RESULTS_README.txt                       key to every output
+  run_manifest.json                        run id, code version, configuration hash, cohort sizes, file hashes
+  figures/                                 RQ1_01 … RQ4_03 as PDF + PNG
+  tables/                                  RQ1_01 … RQ4_04 as CSV; diagnostics/ holds cleaning_flow, context_overlap, denominators
+  diagnostics/                             environment.json, experiment_config.json (seed, dictionaries, tokeniser), source_provenance.json
+  archive/                                 zipped outputs of earlier runs
 docs/
-  Ethical_Architects_Proposal.docx               finalized proposal used to generate the first draft of the code
-  Ethical_Architects_Proposal_Submission2_expected_results.docx   proposal with four expected figures/tables per RQ
-  Ethical_Architects_Presentation.pptx           initial presentation
-target_journal.txt                               "Ethics and Information Technology"
+  proposal/                                finalized proposal; Submission-2 version with expected results
+  presentations/                           initial and current presentations
+  paper/                                   Overleaf export (LaTeX source and PDF)
+  ChatGPT_Link_Confirming_Code_Execution.txt
+  Github_Zenodo_Links.txt
+target_journal.txt                         "Ethics and Information Technology"
 requirements.txt · LICENSE (MIT) · CITATION.cff · .zenodo.json
 ```
 
+Data files are not stored in this repository.
+
+## Data
+
+This project uses the `helpful-base` and `harmless-base` **test** splits of [Anthropic HH-RLHF](https://huggingface.co/datasets/Anthropic/hh-rlhf), pinned to revision `d8d97fe9e96fcd19cc8fc31bd04ee393422abfbb`.
+
+### Download the test files
+
+- [helpful-base/test.jsonl.gz](https://huggingface.co/datasets/Anthropic/hh-rlhf/resolve/d8d97fe9e96fcd19cc8fc31bd04ee393422abfbb/helpful-base/test.jsonl.gz) → save as `data/helpful-base/test.jsonl.gz`
+- [harmless-base/test.jsonl.gz](https://huggingface.co/datasets/Anthropic/hh-rlhf/resolve/d8d97fe9e96fcd19cc8fc31bd04ee393422abfbb/harmless-base/test.jsonl.gz) → save as `data/harmless-base/test.jsonl.gz`
+
+### Verify the files
+
+From the repository root:
+
+```sh
+gzip -dc data/helpful-base/test.jsonl.gz | sha256sum
+gzip -dc data/harmless-base/test.jsonl.gz | sha256sum
+```
+
+The hashes apply to the decompressed JSONL contents.
+
+| Test split | SHA-256 |
+|---|---|
+| helpful-base | `41c3a32fe45a7075f7e32b11bd29383f9fe650287354a95568f61295a8e694da` |
+| harmless-base | `14d765196c9f18d84f9bb3a78bac608c8f2915110ebcbd74ec95db7b7198b008` |
+
+### Expected preprocessing counts
+
+| Test split | Raw pairs | Pairs after cleaning |
+|---|---|---|
+| helpful-base | 2,354 | 2,333 |
+| harmless-base | 2,312 | 2,297 |
+| **Total** | **4,666** | **4,630** |
+
+Each retained pair contains the chosen and rejected final assistant replies for the same conversation context. Pairs are excluded when the two transcripts differ before the final reply, when a final reply is empty, when the replies are identical, or when the same context appears more than once (one representative is kept). Density comparisons use 4,625 pairs after five zero-token exclusions.
+
 ## How to run
 
-### Kaggle (official run — test split)
-1. Create a new notebook and import `Ethical_Architects_Final_Implementation.ipynb`.
-2. Settings → **Internet: On**. No GPU needed.
-3. **Run All**. The two official test files (2,354 + 2,312 pairs) download automatically and are verified by SHA-256 against the pinned revision.
-4. The last cell prints the path of `final_results.zip` under `/kaggle/working/ethical_architects_dev/run_<timestamp>/`. Download it and add it to `results/` in this repository as `final_results_test_split_<date>.zip`.
-5. Use **Save & Run All (Commit)** so the saved notebook contains the executed outputs; download that version and replace the notebook in this repository with it.
+### Kaggle
+1. New notebook → File → Import → `notebooks/Ethical_Architects_notebook.ipynb`.
+2. Settings → **Internet: On** (the notebook downloads and hash-verifies the two test files), or attach the verified files as a Kaggle dataset. No GPU needed.
+3. **Run All**. M7 checks that all sixteen outputs exist and writes a results ZIP under the run folder printed by the last cell.
 
-### Offline / local
-If no internet is available, attach the verified data files (test or train, `.jsonl` or `.jsonl.gz`) as notebook input; the loader matches them by content hash. With only train files present the notebook analyses the train split and says so in `diagnostics/analysis_split.json`. Locally: `pip install -r requirements.txt`, then run all cells; outputs go to `./hh_rlhf_outputs/run_<timestamp>/`.
+### Local
+```sh
+pip install -r requirements.txt
+jupyter notebook notebooks/Ethical_Architects_notebook.ipynb
+```
+Place the data files under `data/` as described above, then run all cells.
 
-## What the notebook produces
+## What the results do and do not show
 
-- **Provenance and data flow** — `diagnostics/source_provenance.csv`, `cleaning_flow.csv`, `exclusions.csv` (every excluded pair with its reason).
-- **Samples** — `annotation_templates/pilot_40_blinded.csv` and `main_500_blinded.csv` (labels hidden, replies as Response A/B in random order), `double_coding_subset_ids.csv` (25% double-coded). The un-blinding keys are written to a `private/` folder that is never zipped or committed.
-- **Figures** — one per research question, PDF + PNG, from the lexicon pass over every cleaned pair.
-- **Tables** — CSV per research question with bootstrap 95% CIs on paired differences, exact McNemar tests with Holm correction, odds ratios for "the feature-bearing reply is the chosen one", χ²/Cramér's V, and the six-ordering sensitivity for RQ4.
-- **Validation hook** — once `main_500_coded.csv` (and optionally `main_500_coded_coder2.csv`) is attached, step 10 computes Cohen's κ lexicon-vs-human per feature, κ between coders, and the human RQ4 outcome distribution.
-
-## What the automated results do and do not show
-
-The lexicon pass is a transparent, reproducible proxy. It measures phrase patterns in actual replies; it does not establish factual accuracy, ethical adequacy, or the annotators' motives. The paper's claims rest on the blinded, double-coded human sample. Results describe one 2022 annotator pool under one instruction set and say nothing about current models or current RLHF practice.
-
-## Latest run summary (train split, 85,376 cleaned pairs, 9 Nov 2026)
-
-| | Harmless subset | Helpful subset |
-|---|---|---|
-| Refusal: odds it is the chosen reply | 1.97 (Holm p < 0.001) | 0.47 (p = 0.09) |
-| Redirection: odds chosen | 0.85 (p < 0.001) | 1.21 (p = 0.24) |
-| Safety information: odds chosen | 0.90 (p = 0.012) | 1.55 (p = 0.013) |
-| Specific-reason refusal chosen when both refuse | OR 1.00 [0.29, 3.45], n = 34 | — |
-| Hedges per 100 words, chosen vs rejected | — | 1.01 vs 1.11 (Wilcoxon p < 0.001) |
-| Third-party acknowledgment: odds chosen | 0.82 (McNemar p = 0.029) | 1.05 (p = 0.86) |
-| Ranking under frozen criteria: stable / reversed / unresolved | 9% / 10% / 81% | 25% / 24% / 52% |
+The analysis is a transparent, reproducible measurement of literal expression patterns on released text. It uses no human coding files, no external claim verdicts and no AI judge. It does not establish the factual accuracy or ethical adequacy of any reply, does not identify a primary stakeholder, and makes no claim about annotator intentions. Results describe one annotator pool under one instruction set in 2022 and say nothing about current models or current RLHF practice. Inference beyond the analysed pairs requires exchangeable contexts.
 
 ## Citation
 
-See `CITATION.cff`. Dataset: Bai et al. (2022), *Training a Helpful and Harmless Assistant with RLHF*, arXiv:2204.05862.
+See `CITATION.cff`, or cite the Zenodo record: [10.5281/zenodo.24090950](https://doi.org/10.5281/zenodo.24090950).
+Dataset: Bai et al. (2022), *Training a Helpful and Harmless Assistant with Reinforcement Learning from Human Feedback*, arXiv:2204.05862.

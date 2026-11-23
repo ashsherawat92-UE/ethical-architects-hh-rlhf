@@ -1,0 +1,5 @@
+GitHub:
+https://github.com/ashsherawat92-UE/ethical-architects-hh-rlhf
+
+Zenodo:
+https://doi.org/10.5281/zenodo.24090950

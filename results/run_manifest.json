@@ -1,0 +1,242 @@
+{
+  "run_id": "run_20261123T111934312621Z",
+  "code_version": "ea-automated-1.1",
+  "configuration_hash": "2999aab7658f60f8d22444e548792bd6423c51a371703e45dfef647e2a07c034",
+  "strict_pairs": 4630,
+  "density_pairs": 4625,
+  "source_revision": "d8d97fe9e96fcd19cc8fc31bd04ee393422abfbb",
+  "scenario_sizes": {
+    "baseline": {
+      "helpful": 2333,
+      "harmless": 2297
+    },
+    "expanded_lexicon": {
+      "helpful": 2333,
+      "harmless": 2297
+    },
+    "relaxed_prior_turns": {
+      "helpful": 2339,
+      "harmless": 2301
+    },
+    "largest_hash_representative": {
+      "helpful": 2333,
+      "harmless": 2297
+    },
+    "both_10_to_200_words": {
+      "helpful": 1697,
+      "harmless": 1552
+    },
+    "length_ratio_at_most_2": {
+      "helpful": 1087,
+      "harmless": 1110
+    }
+  },
+  "outputs": [
+    {
+      "output_id": "RQ1_01",
+      "status": "generated",
+      "files": [
+        "tables/RQ1_01.csv",
+        "figures/RQ1_01.pdf",
+        "figures/RQ1_01.png"
+      ],
+      "note": "Eight tests; Holm within this output. Intervals are pointwise 95% pair bootstrap intervals.",
+      "n_rows": 8
+    },
+    {
+      "output_id": "RQ1_02",
+      "status": "generated",
+      "files": [
+        "tables/RQ1_02.csv",
+        "figures/RQ1_02.pdf",
+        "figures/RQ1_02.png"
+      ],
+      "note": "Twelve tests; separate Holm family. Joint matches are measured within one reply.",
+      "n_rows": 12
+    },
+    {
+      "output_id": "RQ1_03",
+      "status": "generated",
+      "files": [
+        "tables/RQ1_03.csv"
+      ],
+      "note": "Full phrase table, including zeros. top_five_display identifies the prespecified five most frequent expressions per family/subset; ties use lexical order. No tests.",
+      "n_rows": 34
+    },
+    {
+      "output_id": "RQ1_04",
+      "status": "generated",
+      "files": [
+        "tables/RQ1_04.csv",
+        "figures/RQ1_04.pdf",
+        "figures/RQ1_04.png"
+      ],
+      "note": "Descriptive transitions. More matched families do not indicate better response quality.",
+      "n_rows": 50
+    },
+    {
+      "output_id": "RQ2_01",
+      "status": "generated",
+      "files": [
+        "tables/RQ2_01.csv"
+      ],
+      "note": "Paired mean rate differences with pointwise bootstrap intervals. These are wording densities, not factual accuracy or confidence calibration.",
+      "n_rows": 4
+    },
+    {
+      "output_id": "RQ2_02",
+      "status": "generated",
+      "files": [
+        "tables/RQ2_02.csv",
+        "figures/RQ2_02.pdf",
+        "figures/RQ2_02.png"
+      ],
+      "note": "Fixed ≤25, >25–75 and >75 word groups. Pointwise descriptive intervals; no causal length interpretation.",
+      "n_rows": 12
+    },
+    {
+      "output_id": "RQ2_03",
+      "status": "generated",
+      "files": [
+        "tables/RQ2_03.csv"
+      ],
+      "note": "Four exact McNemar tests and within-output Holm. Zero-token replies remain eligible for binary occurrence.",
+      "n_rows": 4
+    },
+    {
+      "output_id": "RQ2_04",
+      "status": "generated",
+      "files": [
+        "tables/RQ2_04.csv",
+        "figures/RQ2_04.pdf",
+        "figures/RQ2_04.png"
+      ],
+      "note": "Descriptive distributions on the positive-token paired cohort. No independent two-sample test.",
+      "n_rows": 56
+    },
+    {
+      "output_id": "RQ3_01",
+      "status": "generated",
+      "files": [
+        "tables/RQ3_01.csv",
+        "figures/RQ3_01.pdf",
+        "figures/RQ3_01.png"
+      ],
+      "note": "Six exact McNemar tests, Holm within this output. References do not establish participation or protection.",
+      "n_rows": 6
+    },
+    {
+      "output_id": "RQ3_02",
+      "status": "generated",
+      "files": [
+        "tables/RQ3_02.csv"
+      ],
+      "note": "Eight mutually exclusive patterns per subset/side. No category match means absence under this dictionary only.",
+      "n_rows": 32
+    },
+    {
+      "output_id": "RQ3_03",
+      "status": "generated",
+      "files": [
+        "tables/RQ3_03.csv",
+        "figures/RQ3_03.pdf",
+        "figures/RQ3_03.png"
+      ],
+      "note": "Context strata can overlap. Each denominator is stated. Intervals are pointwise; no additional test family.",
+      "n_rows": 12
+    },
+    {
+      "output_id": "RQ3_04",
+      "status": "generated",
+      "files": [
+        "tables/RQ3_04.csv"
+      ],
+      "note": "Full expression counts with top-five flags. Pronoun and specific-reference contributions remain distinguishable.",
+      "n_rows": 26
+    },
+    {
+      "output_id": "RQ4_01",
+      "status": "generated",
+      "files": [
+        "tables/RQ4_01.csv",
+        "figures/RQ4_01.pdf",
+        "figures/RQ4_01.png"
+      ],
+      "note": "Narrow and expanded effects and paired shifts. Pointwise bootstrap intervals; no new hypothesis tests.",
+      "n_rows": 18
+    },
+    {
+      "output_id": "RQ4_02",
+      "status": "generated",
+      "files": [
+        "tables/RQ4_02.csv"
+      ],
+      "note": "Strict, relaxed-prior-turn and largest-hash variants. Cohort and common-context comparisons are distinct. No additional tests.",
+      "n_rows": 54
+    },
+    {
+      "output_id": "RQ4_03",
+      "status": "generated",
+      "files": [
+        "tables/RQ4_03.csv",
+        "figures/RQ4_03.pdf",
+        "figures/RQ4_03.png"
+      ],
+      "note": "CSV reports all nine families. Figure shows refusal, uncertainty and other-person references. Restrictions change the paired cohort.",
+      "n_rows": 54
+    },
+    {
+      "output_id": "RQ4_04",
+      "status": "generated",
+      "files": [
+        "tables/RQ4_04.csv"
+      ],
+      "note": "All five alternatives and nine families in each subset. Tiny effects are interpreted with their magnitudes. No significance-flip selection.",
+      "n_rows": 90
+    }
+  ],
+  "file_hashes": {
+    "output/tables/RQ1_01.csv": "c69fa577dc3a05224833046c70fa2d9748a25d755c8d0bd9abbf9e05fd791817",
+    "output/figures/RQ1_01.pdf": "87cbcc160fc9150e5162ae50c9bbd22a93d22bac2bd1954c41143a1f650c370c",
+    "output/figures/RQ1_01.png": "fcc3d8bf283c0debfc2c6f814f416ec56681c9785ad8db7c041779e1467bf8c3",
+    "output/tables/RQ1_02.csv": "f584cdde1cd3b3a6bca4038fae85607d857ee47ffecbf7fac5acda51b6083f1d",
+    "output/figures/RQ1_02.pdf": "c7054afe96c94cc6937e6918b33e68216503f136c77732ca4c7ab6159fa7ca98",
+    "output/figures/RQ1_02.png": "89074273504ed2b2b91f13376f633b704cbe19aab00fbceb19143372c0a6e49e",
+    "output/tables/RQ1_03.csv": "266f778f6aa8be257b8b635537db71be5d8267d8c88b432f4cb155e82152ae25",
+    "output/tables/RQ1_04.csv": "718241a13ce26dd3a04cb5a414b10093f6ecaac6eec13768df4e9517bd5d0235",
+    "output/figures/RQ1_04.pdf": "1f495dcb85f476891efc1a7cf7ad7737396ba7e66aa67771ff9af7f1c29c7cf4",
+    "output/figures/RQ1_04.png": "45b5a9f5217057f3ec70e66548a35cb0d541830513163664cc0df06d08f584ef",
+    "output/tables/RQ2_01.csv": "ed18d8d702c3352bfedb9c090ded9dcc9ab2f36e38cce20e4ddeb440623b3535",
+    "output/tables/RQ2_02.csv": "6b18a5ac340a622994d1e49e9663f6b1f121f82eafb42add0f3711405fba5832",
+    "output/figures/RQ2_02.pdf": "e3eaeb63635d0fe4ffecd86c877d996d5894b4f18d8b1a3def18d94a4d206bf8",
+    "output/figures/RQ2_02.png": "63bcf11324f025fc238bf05e53bf2af416381c0be9c65597ed260d7da327dfd0",
+    "output/tables/RQ2_03.csv": "6fecf16dab8805eb4bc3150c4a7ccbb2acb554f8afde91995fa6da81a971f384",
+    "output/tables/RQ2_04.csv": "b5038a2b66aa2bb667d08f594aa254f90cbf83239ed0e75821751b781c60fe6a",
+    "output/figures/RQ2_04.pdf": "f72f4780fbfc0e7c3ea1b90dd1930c195905bc9baca56b76cf8fb93f0c72e5ad",
+    "output/figures/RQ2_04.png": "cd089d292850d368fed6b488870de27da7ad4aa71456847e87dd71241ab99bfc",
+    "output/tables/RQ3_01.csv": "c4483025731d4ef97682d09877e60180598443cdd7e9637202973374e0b5b7f1",
+    "output/figures/RQ3_01.pdf": "8adb67b0ac59b26351431f1bb161ae53b2180225cbddcf7f989875698b105318",
+    "output/figures/RQ3_01.png": "21bdbb819b6f61380dc91d019278f3d212a262ffc3c589a0d5addfc4a019de87",
+    "output/tables/RQ3_02.csv": "83fa84db932ca55a3c34c382fff7bef0eff74669e9fa5ad27963639d1286da4d",
+    "output/tables/RQ3_03.csv": "cd9de25c3bd3581c55fc314796bc7cc845c237f341c849f720e319b3a3dc431a",
+    "output/figures/RQ3_03.pdf": "18c8e87a916c19c2573c615cf8f46dd7a1106bcbc96b601898fdb76eab1c93de",
+    "output/figures/RQ3_03.png": "557daf54be5b6757aea773ba8bbc7234a140f554e0ada336163ecb2743e3be5e",
+    "output/tables/RQ3_04.csv": "7a6c7c5346313466a8d5616aa77262cf4e907f438abc221ef4e1b2757465c603",
+    "output/tables/RQ4_01.csv": "420612beb65c055beb6d0694b9a494f85f8498e91aef52868b524356a275e19b",
+    "output/figures/RQ4_01.pdf": "64d09f9f94469d8db07fa6530cf273dafca77206ae0ef04ca1a8ab422c4285f7",
+    "output/figures/RQ4_01.png": "b0ba1740d23970d3078ad5f432dae7d43a843f37ea5fce1ebd2617d941310f68",
+    "output/tables/RQ4_02.csv": "97b11a91a41ae425d5c4bc578914b986cbd31199e0ab6fd642fe0519f8b89a2b",
+    "output/tables/RQ4_03.csv": "d994f06ea610e621618a0c7db0be623a8bbc7627823301bfef6f8d35fdc5c229",
+    "output/figures/RQ4_03.pdf": "6fc9e77880f644214167e5e6a6059f738b82d54767c4fbe334b6a5bcfe04a950",
+    "output/figures/RQ4_03.png": "77d6060c959a706938aa210e2ed03ec011ac4649b86302f43ff93a5db6f88e4f",
+    "output/tables/RQ4_04.csv": "2d7799efbd778935db998fff6ef7c7ef6d5f58585c4283a5d3efe1925d488f40",
+    "output/diagnostics/environment.json": "8beb329900dce54e4ec3e03cd0546b27f2fe9547a4299ec90d04c7d2dfea47a4",
+    "output/diagnostics/experiment_config.json": "5479482f4bc593bfa0d70426b2d7758110c5c10f52c988d90781dd3b22982542",
+    "output/tables/diagnostics/cleaning_flow.csv": "4a03aefcbcb8d2d69a455ab39be2a66f85e719b7c25320e2bef5f2bc202a514b",
+    "output/tables/diagnostics/word_and_density_denominators.csv": "213bf07703c3901ed157edd395978bc51d4d49102b6fe3c52a25bcc94d84abff",
+    "output/tables/diagnostics/context_overlap.csv": "e4b37e069b2a41b174c0424a4414a8f63495ec78a4fffcae35e7a0c1c6a5767b",
+    "output/diagnostics/source_provenance.json": "f93b2498d3cd85f59e8e360326ad2c18c2db582b4471d687ef888f9edd1adde1",
+    "output/RESULTS_README.txt": "5fd916e788f49bc72a80e511d17a1b6326ee0ba86656a5da8dae1908636858d0"
+  },
+  "technical_status": "All sixteen automated exhibits generated; output integrity checks passed."
+}
