@@ -1,4 +1,4 @@
-# Lexical patterns and measurement sensitivity in AI preference data
+# Ethical justification and value tensions in AI preference data
 
 Analysis code and results for **Project 14** of the PW26 elective *AI, Power & Responsibility: Governing Intelligence* — Team Ethical Architects (Agathiyan Akilan, Ashwani Sherawat).
 
